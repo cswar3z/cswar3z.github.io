@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Random Number - Local</title>
+</head>
+<body>
+<h1>Random Number Generator (Local)</h1>
+<p>Random number: <span id="num">0</span></p>
+<input type="button" value="Generate New Number" onclick="showRandom()">
+
+<script type="text/javascript">
+function showRandom() {
+    var randomNum = Math.random();
+    var element = document.getElementById('num');
+    
+    if (element) {
+        // Try multiple methods for compatibility
+        if (typeof element.innerHTML !== 'undefined') {
+            element.innerHTML = randomNum;
+        } else if (typeof element.innerText !== 'undefined') {
+            element.innerText = randomNum;
+        } else if (typeof element.textContent !== 'undefined') {
+            element.textContent = randomNum;
+        } else {
+            element.text = randomNum;
+        }
+    }
+}
+
+// Wait a bit to ensure DOM is ready, then execute
+setTimeout(function() {
+    showRandom();
+}, 100);
+</script>
+</body>
+</html>
